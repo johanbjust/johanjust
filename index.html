@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOHAN JUST</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e8e8e8; 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: "Arial Black", "Arial Bold", sans-serif;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            padding-left: 15px; 
+        }
+
+        .char {
+            display: inline-block;
+            font-size: clamp(100px, 25vw, 220px);
+            font-weight: 900;
+            color: #000;
+            line-height: 0.8;
+            position: relative;
+            cursor: pointer;
+            text-shadow: 8px 8px 20px rgba(0,0,0,0.12);
+            
+            /* THIS PREVENTS THE ABRUPT STOP */
+            /* It creates a 'soft landing' when the mouse leaves */
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            
+            /* Apply the individual rotations defined below */
+            transform: rotate(var(--rot));
+        }
+
+        /* 
+           Defining unique rotations and spacing 
+           --rot stores the base angle for the animation to use
+        */
+        .j { --rot: -6deg; margin-right: -0.04em; z-index: 1; }
+        .u { --rot: 1deg;  margin-left: -0.08em; z-index: 2; }
+        .s { --rot: -5deg; margin-left: -0.12em; z-index: 1; }
+        .t { --rot: 11deg; margin-left: -0.1em;  z-index: 3; }
+
+        /* Smoother Animation on Hover */
+        .char:hover {
+            z-index: 10;
+            /* 0.8s duration makes it feel more heavy and premium */
+            animation: smoothWobble 0.8s infinite ease-in-out;
+        }
+
+        @keyframes smoothWobble {
+            0% { 
+                transform: rotate(var(--rot)) scale(1.1); 
+            }
+            33% { 
+                transform: rotate(calc(var(--rot) - 8deg)) scale(1.12); 
+            }
+            66% { 
+                transform: rotate(calc(var(--rot) + 8deg)) scale(1.12); 
+            }
+            100% { 
+                transform: rotate(var(--rot)) scale(1.1); 
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            margin-top: 20px;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: #000;
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            transition: opacity 0.4s ease;
+        }
+
+        .contact-link:hover {
+            opacity: 0.4;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="logo-wrapper">
+        <span class="char j">J</span>
+        <span class="char u">U</span>
+        <span class="char s">S</span>
+        <span class="char t">T</span>
+    </div>
+
+    <div class="contact">
+        <a href="mailto:johan@johanjust.de" class="contact-link">CONTACT</a>
+    </div>
+
+</body>
+</html>
